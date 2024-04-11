@@ -6,7 +6,9 @@ on:
     branches:
       - master
       - main 
-
+env:
+    TERRAFORM_DOCS_VERSION: v0.16.0
+    TFLINT_VERSION: v0.50.3
 jobs:
     compositeInputs:
       name: Collect workflow inputs
