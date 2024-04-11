@@ -5,7 +5,7 @@ on:
   push:
     branches:
       - master
-      - main 
+      - main
 env:
     TERRAFORM_DOCS_VERSION: v0.16.0
     TFLINT_VERSION: v0.50.3
@@ -18,7 +18,7 @@ jobs:
       steps:
         - name: Checkout
           uses: actions/checkout@v4
-  
+
         - name: Get root directories
           id: dirs
           uses: clowdhaus/terraform-composite-actions/directories@v1.9.0
@@ -37,16 +37,16 @@ jobs:
                   rm -rf /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk
                   rm -rf /opt/hostedtoolcache/Ruby
                   rm -rf /opt/hostedtoolcache/go
-        
+
               - name: Checkout
                 uses: actions/checkout@v4
-        
+
               - name: Terraform min/max versions
                 id: minMax
                 uses: clowdhaus/terraform-min-max@v1.3.0
                 with:
                   directory: ${{ matrix.directory }}
-        
+
               - name: Pre-commit Terraform ${{ steps.minMax.outputs.minVersion }}
                 # Run only validate pre-commit check on min version supported
                 if: ${{ matrix.directory !=  '.' }}
@@ -55,7 +55,7 @@ jobs:
                   terraform-version: ${{ steps.minMax.outputs.minVersion }}
                   tflint-version: ${{ env.TFLINT_VERSION }}
                 #   args: 'terraform_validate --color=always --show-diff-on-failure --files ${{ matrix.directory }}/*'
-        
+
               - name: Pre-commit Terraform ${{ steps.minMax.outputs.minVersion }}
                 # Run only validate pre-commit check on min version supported
                 if: ${{ matrix.directory ==  '.' }}
@@ -64,7 +64,7 @@ jobs:
                   terraform-version: ${{ steps.minMax.outputs.minVersion }}
                   tflint-version: ${{ env.TFLINT_VERSION }}
                 #   args: 'terraform_validate --color=always --show-diff-on-failure --files $(ls *.tf)'
-        
+
     preCommitMaxVersion:
             name: Max TF pre-commit
             runs-on: ubuntu-latest
@@ -77,17 +77,17 @@ jobs:
                   rm -rf /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk
                   rm -rf /opt/hostedtoolcache/Ruby
                   rm -rf /opt/hostedtoolcache/go
-        
+
               - name: Checkout
                 uses: actions/checkout@v4
                 with:
                   ref: ${{ github.event.pull_request.head.ref }}
                   repository: ${{github.event.pull_request.head.repo.full_name}}
-        
+
               - name: Terraform min/max versions
                 id: minMax
                 uses: clowdhaus/terraform-min-max@v1.3.0
-        
+
               - name: Pre-commit Terraform ${{ steps.minMax.outputs.maxVersion }}
                 uses: clowdhaus/terraform-composite-actions/pre-commit@v1.9.0
                 with:
