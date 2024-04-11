@@ -11,8 +11,8 @@ resource "aws_kms_key" "kms_key" {
 }
 
 resource "aws_kms_alias" "alias" {
-  count = var.alias_use_name_prefix != null || var.alias_name != null ? 1 : 0
-  name_prefix = var.alias_use_name_prefix != null ? var.alias_name : null
-  name = var.alias_use_name_prefix == null ? var.alias_name : null
+  count         = var.alias_use_name_prefix != null || var.alias_name != null ? 1 : 0
+  name_prefix   = var.alias_use_name_prefix != null ? var.alias_name : null
+  name          = var.alias_use_name_prefix == null ? var.alias_name : null
   target_key_id = aws_kms_key.kms_key.key_id
 }

@@ -55,14 +55,14 @@ variable "multi_region" {
 
 #### Alias Details
 variable "alias_use_name_prefix" {
-  default = null
+  default     = null
   description = "Creates an unique alias beginning with the specified prefix. Dont pass alias/"
-  type = string
-  
+  type        = string
+
 }
 variable "alias_name" {
-  default = null
+  default     = null
   description = "The display name of the alias. Dont pass alias/"
-  type = string
-  
+  type        = string
+
 }
