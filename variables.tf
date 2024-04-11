@@ -1,8 +1,8 @@
-variable "required_tags" {
-  type        = map(string)
-  default     = {}
-  description = "tags to add to all resources"
-}
+# variable "required_tags" {
+#   type        = map(string)
+#   default     = {}
+#   description = "tags to add to all resources"
+# }
 
 variable "description" {
   type        = string
@@ -62,7 +62,7 @@ variable "alias_use_name_prefix" {
 }
 variable "alias_name" {
   default = null
-  description = " The display name of the alias. Dont pass alias/"
+  description = "The display name of the alias. Dont pass alias/"
   type = string
   
 }
