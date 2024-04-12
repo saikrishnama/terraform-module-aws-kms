@@ -1,8 +1,8 @@
-# variable "required_tags" {
-#   type        = map(string)
-#   default     = {}
-#   description = "tags to add to all resources"
-# }
+variable "required_tags" {
+  type        = map(string)
+  default     = {}
+  description = "tags to add to all resources"
+}
 
 variable "description" {
   type        = string

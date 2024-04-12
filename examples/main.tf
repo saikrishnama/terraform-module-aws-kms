@@ -1,5 +1,5 @@
 module "required_tags" {
-  source                = "github.com/saikrishnama/terraform-resource-tags.git"
+  source                = "https://github.com/saikrishnama/terraform-resource-tags.git?ref=master"
   environment           = var.environment
   cost_center_id        = var.cost_center_id
   app_team_name         = var.app_team_name

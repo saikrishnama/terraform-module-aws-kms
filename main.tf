@@ -7,7 +7,7 @@ resource "aws_kms_key" "kms_key" {
   enable_key_rotation      = try(var.enable_key_rotation, true)
   is_enabled               = try(var.is_kms_enabled, true)
   multi_region             = var.multi_region
-  # tags                     = var.required_tags
+  tags                     = var.required_tags
 }
 
 resource "aws_kms_alias" "alias" {
