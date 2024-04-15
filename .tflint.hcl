@@ -6,10 +6,10 @@ plugin "aws" {
   version = "0.21.1"
   source  = "github.com/terraform-linters/tflint-ruleset-aws"
 }
-
 config {
   module = true
   force  = false
+  call_module_type = "all"
 }
 
 rule "terraform_required_providers" {
