@@ -9,7 +9,7 @@ plugin "aws" {
 config {
   module = true
   force  = false
-  call_module_type = "all"
+  call_module_type = none
 }
 
 rule "terraform_required_providers" {
