@@ -15,6 +15,6 @@ module "kms" {
   customer_master_key_spec = "SYMMETRIC_DEFAULT"
   # deletion_window_in_days  = 7
   multi_region = false
-  # required_tags = module.required_tags
+  required_tags = module.required_tags
 
 }
