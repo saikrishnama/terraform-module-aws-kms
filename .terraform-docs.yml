@@ -5,7 +5,7 @@ version: ">= 0.16.0, < 1.0.0"
 
 output:
   file: README.md
-  mode: replace
+  mode: inject
 
 sort:
   enabled: true
