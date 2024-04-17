@@ -1,15 +1,15 @@
 ---
-formatter: markdown table
+formatter: markdown
 
 version: ">= 0.16.0, < 1.0.0"
 
 output:
   file: README.md
-  mode: inject
+  mode: replace
 
 sort:
   enabled: true
-  by: name
+  by: required
 
 settings:
   anchor: true
